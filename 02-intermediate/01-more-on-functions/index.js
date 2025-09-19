@@ -184,6 +184,18 @@ introduceBob("Paris");
 const introduceBobFromBerlin = introduce.bind(anotherPerson, 40, "Berlin");
 introduceBobFromBerlin();
 
+const person = {
+  name: "Charlie",
+  greet: function () {
+    console.log(`Hello, my name is ${this.name}.`);
+  },
+};
+
+const unboundGreet = person.greet;
+unboundGreet(); // Output: "Hello, my name is undefined." (or an error in strict mode)
+
+const boundGreet = person.greet.bind(person);
+boundGreet(); // Output: "Hello, my name is Charlie."
 // Exercise for students:
 // 1. Create a higher-order function `createGreeter` that takes a `greeting` string (e.g., "Hello", "Hi") and returns a new function. The returned function should take a `name` and return the full greeting (e.g., "Hello, Alice!").
 // 2. Simulate an asynchronous operation (e.g., fetching user data) using `setTimeout`. Use a callback function to process the fetched data.

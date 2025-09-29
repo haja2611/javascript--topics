@@ -38,14 +38,14 @@ console.log("\n--- 2. Selecting Elements ---\n");
 // The primary way to get references to HTML elements from JavaScript.
 
 // getElementById(): Selects a single element by its ID. Returns null if not found.
-// const container = document.getElementById('container');
+const container = document.getElementById("container");
 // console.log("Container by ID:", container);
 
 // querySelector(): Selects the first element that matches a specified CSS selector. Returns null if not found.
 // const heading = document.querySelector("h1");
 // console.log("First H1:", heading);
 
-// const introParagraph = document.querySelector(".intro");
+const introParagraph = document.querySelector(".intro");
 // console.log("Intro Paragraph:", introParagraph);
 
 // querySelectorAll(): Selects all elements that match a specified CSS selector. Returns a NodeList (like an array).
@@ -77,7 +77,7 @@ console.log("\n--- 3. Manipulating Elements ---\n");
 //   "This is an <strong>updated</strong> introductory paragraph.";
 
 // Attributes: getAttribute(), setAttribute(), removeAttribute(), hasAttribute()
-// const myButton = document.getElementById("myButton");
+const myButton = document.getElementById("myButton");
 // console.log("Button ID:", myButton.getAttribute("id"));
 // myButton.setAttribute("data-action", "submit");
 // console.log("Button data-action:", myButton.getAttribute("data-action"));
@@ -110,21 +110,21 @@ console.log("\n--- 4. Creating and Removing Elements ---\n");
 // Creating and Removing Elements
 
 // Creating a new element: document.createElement()
-// const newListItem = document.createElement("li");
-// newListItem.textContent = "Item 4 (Dynamically Added)";
-// newListItem.classList.add("item");
+const newListItem = document.createElement("li");
+newListItem.textContent = "Item 4 (Dynamically Added)";
+newListItem.classList.add("item");
 
 // Appending to an element: appendChild(), append(), prepend()
-// const myList = document.getElementById("myList");
-// myList.appendChild(newListItem); // Adds as last child
+const myList = document.getElementById("myList");
+myList.appendChild(newListItem); // Adds as last child
 
-// const anotherNewItem = document.createElement("li");
-// anotherNewItem.textContent = "New First Item";
-// myList.prepend(anotherNewItem); // Adds as first child (ES6)
-// const listItems = myList.querySelectorAll("li");
+const anotherNewItem = document.createElement("li");
+anotherNewItem.textContent = "New First Item";
+myList.prepend(anotherNewItem); // Adds as first child (ES6)
+const listItems = myList.querySelectorAll("li");
 // Removing an element: removeChild(), remove()
-//myList.removeChild(listItems[0]); // Removes the first static list item
-//newListItem.remove(); // Removes the dynamically added item (modern way)
+myList.removeChild(listItems[0]); // Removes the first static list item
+newListItem.remove(); // Removes the dynamically added item (modern way)
 
 console.log("\n--- 5. Event Handling ---\n");
 
@@ -135,19 +135,19 @@ console.log("\n--- 5. Event Handling ---\n");
 // Syntax: element.addEventListener(event, handler, options);
 
 // (Assuming 'myButton' is selected)
-// myButton.addEventListener('click', function(event) {
-//     console.log("Button clicked!");
-//     console.log("Event object:", event);
-//     console.log("Target element:", event.target);
-// });
+myButton.addEventListener("click", function (event) {
+  console.log("Button clicked!");
+  console.log("Event object:", event);
+  console.log("Target element:", event.target);
+});
 
 // Event delegation (more advanced, often for dynamically added elements)
-// myList.addEventListener('click', function(event) {
-//     if (event.target.classList.contains('item')) {
-//         console.log(`Clicked on list item: ${event.target.textContent}`);
-//         event.target.style.backgroundColor = 'lightblue';
-//     }
-// });
+myList.addEventListener('click', function(event) {
+    if (event.target.classList.contains('item')) {
+        console.log(`Clicked on list item: ${event.target.textContent}`);
+        event.target.style.backgroundColor = 'lightblue';
+    }
+});
 
 // Event bubbling vs. capturing
 // Events typically 'bubble' up from the target element to the document.

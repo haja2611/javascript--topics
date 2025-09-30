@@ -10,22 +10,25 @@ console.log("--- 1. Destructuring Assignment ---");
 // Array Destructuring
 const colors = ["red", "green", "blue"];
 const [firstColor, secondColor, thirdColor] = colors;
-console.log(`First: ${firstColor}, Second: ${secondColor}, Third: ${thirdColor}`);
+console.log(
+  `First: ${firstColor}, Second: ${secondColor}, Third: ${thirdColor}`
+);
 
 // Skipping elements
-const [,, skipColor] = colors; // Skips first two elements
+const [, , skipColor] = colors; // Skips first two elements
 console.log(`Skipped to: ${skipColor}`);
 
 // Swapping variables easily
-let x = 10, y = 20;
+let x = 10,
+  y = 20;
 [x, y] = [y, x];
 console.log(`Swapped x: ${x}, y: ${y}`);
 
 // Object Destructuring
 const user = {
-    name: "Alice",
-    age: 30,
-    city: "Wonderland"
+  name: "Alice",
+  age: 30,
+  city: "Wonderland",
 };
 
 const { name: userName1, age } = user;
@@ -41,14 +44,17 @@ console.log(`User Age: ${userAge}, Country: ${country}`);
 
 // Nested object destructuring
 const company = {
-    companyName: "TechCorp",
-    location: {
-        street: "456 Tech Ave",
-        zip: "90210"
-    }
+  companyName: "TechCorp",
+  location: {
+    street: "456 Tech Ave",
+    zip: "90210",
+  },
 };
-const { location: { street, zip } } = company;
+const {
+  location: { street, zip },
+} = company;
 console.log(`Company Street: ${street}, Zip: ${zip}`);
+// console.log(company.location.street);
 
 console.log("\n--- 2. Spread and Rest Operators (... ) ---");
 
@@ -57,7 +63,7 @@ console.log("\n--- 2. Spread and Rest Operators (... ) ---");
 // Expands an object into key-value pairs.
 
 // Spreading arrays (concatenation or creating new arrays)
-const arr1 = [1, 2, 3];
+const arr1 = [1, 2, 3, 10];
 const arr2 = [4, 5, 6];
 const combinedArray = [...arr1, ...arr2, 7, 8];
 console.log("Combined array:", combinedArray);
@@ -84,8 +90,9 @@ console.log("Are they same reference?", originalObject === copyOfObject); // fal
 // Gathers multiple elements into an array.
 // Used in function parameters to handle an indefinite number of arguments.
 
-function sumAll(...numbers) { // numbers will be an array of all arguments passed
-    return numbers.reduce((total, num) => total + num, 0);
+function sumAll(...numbers) {
+  // numbers will be an array of all arguments passed
+  return numbers.reduce((total, num) => total + num, 0);
 }
 console.log(`Sum of 1, 2, 3: ${sumAll(1, 2, 3)}`);
 console.log(`Sum of 10, 20, 30, 40: ${sumAll(10, 20, 30, 40)}`);
@@ -116,14 +123,14 @@ console.log(multiLineString);
 
 // Tagged Templates (advanced use case)
 function highlight(strings, ...values) {
-    let str = '';
-    strings.forEach((string, i) => {
-        str += string;
-        if (values[i]) {
-            str += `<b>${values[i]}</b>`; // Highlight values
-        }
-    });
-    return str;
+  let str = "";
+  strings.forEach((string, i) => {
+    str += string;
+    if (values[i]) {
+      str += `<b>${values[i]}</b>`; // Highlight values
+    }
+  });
+  return str;
 }
 
 const name = "World";
@@ -136,13 +143,13 @@ console.log("\n--- 4. Classes ---");
 // Provide a cleaner, more familiar syntax for creating objects and dealing with inheritance.
 
 class Animal {
-    constructor(name) {
-        this.name = name;
-    }
+  constructor(name) {
+    this.name = name;
+  }
 
-    speak() {
-        console.log(`${this.name} makes a sound.`);
-    }
+  speak() {
+    console.log(`${this.name} makes a sound.`);
+  }
 }
 
 const animal1 = new Animal("Generic Animal");
@@ -150,18 +157,18 @@ animal1.speak();
 
 // Inheritance with `extends` and `super`
 class Dog extends Animal {
-    constructor(name, breed) {
-        super(name); // Call the parent class constructor
-        this.breed = breed;
-    }
+  constructor(name, breed) {
+    super(name); // Call the parent class constructor
+    this.breed = breed;
+  }
 
-    speak() {
-        console.log(`${this.name} (${this.breed}) barks.`);
-    }
+  speak() {
+    console.log(`${this.name} (${this.breed}) barks.`);
+  }
 
-    static favoriteFood() {
-        return "Bones"; // Static method belongs to the class itself, not instances
-    }
+  static favoriteFood() {
+    return "Bones"; // Static method belongs to the class itself, not instances
+  }
 }
 
 const myDog = new Dog("Buddy", "Golden Retriever");
@@ -182,7 +189,7 @@ console.log("\n--- 5. Modules (import and export) ---");
     export const PI = 3.14;
     export function add(a, b) { return a + b; }
     export default class Calculator { /* ... */ /* }
-*/
+ */
 
 // app.js
 /*
@@ -224,7 +231,7 @@ console.log(`Map has('nonExistent'): ${myMap.has("nonExistent")}`);
 // Iterating over Map
 console.log("Iterating over Map entries:");
 for (const [key, value] of myMap) {
-    console.log(`${key} = ${value}`);
+  console.log(`${key} = ${value}`);
 }
 
 // Deleting elements
@@ -263,7 +270,7 @@ console.log("Set size after delete('hello'):", mySet.size);
 // Iterating over Set
 console.log("Iterating over Set values:");
 for (const value of mySet) {
-    console.log(value);
+  console.log(value);
 }
 
 // Converting Set to Array
